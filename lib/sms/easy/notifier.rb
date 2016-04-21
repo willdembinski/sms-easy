@@ -1,11 +1,11 @@
 class SMSEasyNotifier < ActionMailer::Base
-  include MailerModule
+  # include MailerModule
   def send_sms(recipient, message, sender_email)
-    send_mail(
-        :to => recipient,
-        :from => sender_email,
-        :subject => '',
-        :message => message
-        )
+    # send_mail(
+    #     :to => recipient,
+    #     :from => sender_email,
+    #     :subject => '',
+    #     :message => message
+    #     )
   end
 end
