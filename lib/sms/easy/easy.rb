@@ -17,19 +17,19 @@ module SMSEasy
       if @delivery == :pony
         Pony.mail({:to => email, :body => message, :from => from}.merge!(@pony_config))
       else
-        if ActionMailer.version.version.to_f >= 4.2
-          SMSEasyNotifier.send_sms(email, message, from).deliver_now
-        else
-          SMSEasyNotifier.send_sms(email, message, from).deliver
-        end
+        # if ActionMailer.version.version.to_f >= 4.2
+          # SMSEasyNotifier.send_sms(email, message, from).deliver_now
+        # else
+          SMSEasyNotifier.send_sms(email, message, from)
+          # SMSEasyNotifier.send_sms(email, message, from).deliver
+        # end
       end
     end
 
     class << self
       def configure(opts = {})
         @@config.merge!(opts)
-        # require 'pp'
-        # pp @@@@config
+
       end
 
       def config
